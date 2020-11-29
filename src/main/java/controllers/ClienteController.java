@@ -15,7 +15,7 @@ import entities.Cliente;
 import repositories.ClienteRepository;
 
 @RestController
-@RequestMapping()
+@RequestMapping(value="clientes")
 public class ClienteController {
 
 @Autowired
