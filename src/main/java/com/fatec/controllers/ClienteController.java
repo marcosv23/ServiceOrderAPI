@@ -1,8 +1,11 @@
-package controllers;
+package com.fatec.controllers;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,31 +14,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import entities.Cliente;
-import repositories.ClienteRepository;
+import com.fatec.entities.Cliente;
+import com.fatec.repositories.ClienteRepository;
 
 @RestController
-@RequestMapping(value="clientes")
+@RequestMapping("api/clientes")
 public class ClienteController {
 
-@Autowired
-private ClienteRepository clienteRepository;	
+	@Autowired
+	private ClienteRepository clienteRepository;
 
 	@GetMapping
-	public List<Cliente> listing(){
-	 return (clienteRepository.findAll());
+	public List<Cliente> listing() {
+		return (clienteRepository.findAll());
 	}
-	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+
+	@GetMapping("/teste")
+
+	public ResponseEntity<String> teste() {
+		return new ResponseEntity<>("testado", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Optional<Cliente> findOne(@PathVariable Integer id) {
 		return clienteRepository.findById(id);
 	}
-	
+
 	@PostMapping("/criar/")
 	public Cliente adicionar(@RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
-	
 
-	
 }
