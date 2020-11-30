@@ -14,32 +14,30 @@ public class Cliente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Integer id;
 
-	@Column(name = "nome")
 	private String nome;
 
 	private String email;
 
 	private String telefone;
 
-	public Cliente(long id, String nome, String email, String telefone) {
+	public Cliente(Integer id, String nome, String email, String telefone) {
 		super();
-		this.id = id;
+		this.id =id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
 	}
 
 	public Cliente() {
-		super();
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

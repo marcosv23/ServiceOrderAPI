@@ -30,7 +30,6 @@ public class ClienteController {
 	}
 
 	@GetMapping("/teste")
-
 	public ResponseEntity<String> teste() {
 		return new ResponseEntity<>("testado", HttpStatus.OK);
 	}
@@ -40,8 +39,10 @@ public class ClienteController {
 		return clienteRepository.findById(id);
 	}
 
-	@PostMapping("/criar/")
+	//Here can be @PostMapping("/criar") or RequestMappin
+	@RequestMapping(value="/criar",  method=RequestMethod.POST)
 	public Cliente adicionar(@RequestBody Cliente cliente) {
+		cliente.setId(null);
 		return clienteRepository.save(cliente);
 	}
 
