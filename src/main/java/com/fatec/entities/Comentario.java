@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Comentario {
   
@@ -17,11 +19,12 @@ public class Comentario {
   private Integer id;
   
   private String descricao;
-
+  
+  @JsonFormat(pattern="dd/MM/yyyy HH:mm")
   private Date dataEnvio;
 
   @ManyToOne
-  //@JoinColumn(name="ordem_servico_id")
+  @JoinColumn(name="ordem_servico_id")
   private OrdemServico ordemServico;
 
   public Integer getId() {
@@ -39,6 +42,14 @@ public class Comentario {
     this.id = id;
     this.descricao = descricao;
     this.dataEnvio = dataEnvio;
+
+  }
+
+  public Comentario(Integer id, String descricao, Date dataEnvio, OrdemServico ordemServico) {
+    this.id = id;
+    this.descricao = descricao;
+    this.dataEnvio = dataEnvio;
+    this.ordemServico = ordemServico;
   }
 
   public String getDescricao() {

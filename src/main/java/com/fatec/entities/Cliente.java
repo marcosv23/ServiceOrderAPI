@@ -1,8 +1,6 @@
 package com.fatec.entities;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +19,8 @@ public class Cliente implements Serializable {
 	private String email;
 
 	private String telefone;
+
+
 
 	public Cliente(Integer id, String nome, String email, String telefone) {
 		super();
