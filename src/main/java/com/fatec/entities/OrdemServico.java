@@ -84,6 +84,8 @@ public class OrdemServico implements Serializable {
     return descricao;
   }
 
+  
+
   public void setDescricao(String descricao) {
     this.descricao = descricao;
   }

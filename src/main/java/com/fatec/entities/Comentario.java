@@ -3,6 +3,8 @@ package com.fatec.entities;
 import javax.annotation.Generated;
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.Optional;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -64,10 +66,17 @@ public class Comentario {
     return dataEnvio;
   }
 
-  public void setDataEnvio(Date dataEnvio) {
-    this.dataEnvio = dataEnvio;
+  public void setDataEnvio(Date date) {
+    this.dataEnvio= date;
   }
 
+  public OrdemServico getOrdemServico() {
+    return ordemServico;
+  }
+
+  public void setOrdemServico(Optional<OrdemServico> ordemServico2) {
+    this.ordemServico = ordemServico2;
+  }
 
   @Override
   public String toString() {
@@ -110,6 +119,10 @@ public class Comentario {
       return false;
     return true;
   }
+
+  
+
+
 
   
 
