@@ -3,6 +3,8 @@ package com.fatec.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fatec.entities.Comentario;
 import javax.persistence.Entity;
@@ -36,12 +38,12 @@ public class OrdemServico implements Serializable {
   private String status;
 
   @ManyToOne //Maybe we need here to use JoinColumn
-  @JoinColumn(name="cliente_id")
+  //@JoinColumn(name="cliente_id")
+  @JsonBackReference
   private Cliente cliente;
 
 
   @OneToMany(mappedBy = "cliente")
-  @JoinColumn
   private List<Comentario> comentarios;
 
 
