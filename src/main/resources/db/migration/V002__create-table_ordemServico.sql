@@ -5,7 +5,6 @@ create table  if not exists ordem_servico(
   dataAbertura DATETIME NOT NULL ,
   dataFinalizacao DATETIME,
   cliente_id int,
-  comentario_id int,
   status varchar(20),
   primary key(id)
 );

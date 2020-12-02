@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Cliente implements Serializable {
@@ -25,11 +27,9 @@ public class Cliente implements Serializable {
 
 	private String telefone;
 
+	@JsonBackReference
 	@OneToMany(mappedBy="cliente")
 	private  List<OrdemServico> ordensServico = new ArrayList<>();
-
-
-
 
 
 	public Cliente(Integer id, String nome, String email, String telefone) {
@@ -40,7 +40,7 @@ public class Cliente implements Serializable {
 		this.telefone = telefone;
 	}
 
-	public Cliente() {
+	public Cliente(){
 	}
 
 	public Integer getId() {

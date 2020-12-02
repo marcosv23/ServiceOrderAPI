@@ -1,6 +1,7 @@
 package com.fatec.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,13 +39,12 @@ public class OrdemServico implements Serializable {
   private String status;
 
   @ManyToOne //Maybe we need here to use JoinColumn
-  //@JoinColumn(name="cliente_id")
-  @JsonBackReference
+  @JoinColumn(name="cliente_id")
   private Cliente cliente;
 
 
-  @OneToMany(mappedBy = "cliente")
-  private List<Comentario> comentarios;
+  @OneToMany(mappedBy = "ordemServico")
+  private List<Comentario> comentarios = new ArrayList<>();
 
 
 
