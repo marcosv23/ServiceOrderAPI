@@ -28,13 +28,17 @@ public class OrdensServicoController {
     return repo.findAll();
   }
 
-  @RequestMapping(value="/criar",method = RequestMethod.POST)
+  @RequestMapping(value="/criar",method = RequestMethod.POST )
   public OrdemServico  create(@RequestBody OrdemServico ordemServico ){
     ordemServico.setId(null);
-
     /**MUST HAVE THIS INTO JSON REQUEST TO CREATE
      * descricao
      * dataEnvio
+       preco;
+       dataAbertura;
+       dataFinalizacao;
+       status;
+       cliente_id
      */
     return this.repo.save(ordemServico);
   }
