@@ -1,7 +1,7 @@
 create table  if not exists ordem_servico(
   id int NOT NULL AUTO_INCREMENT,
   descricao TEXT NOT NULL ,
-  preco FLOAT NOT NULL ,
+  preco DECIMAL(10,2) NOT NULL ,
   dataAbertura DATETIME NOT NULL ,
   dataFinalizacao DATETIME,
   cliente_id int,
