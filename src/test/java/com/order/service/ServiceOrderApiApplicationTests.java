@@ -1,10 +1,10 @@
-package com.fatec;
+package com.order.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PersistenceApplicationTests {
+class ServiceOrderApiApplicationTests {
 
 	@Test
 	void contextLoads() {

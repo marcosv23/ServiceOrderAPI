@@ -1,13 +1,13 @@
-package com.fatec;
+package com.api.order.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PersistenceApplication {
+public class ServiceOrderApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PersistenceApplication.class, args);
+		SpringApplication.run(ServiceOrderApiApplication.class, args);
 	}
 
 }
