@@ -1,4 +1,4 @@
-package com.api.order.service.entities;
+package entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,31 +8,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="service_orders")
-public class ServiceOrder implements Serializable{
+@Table(name="comments")
+public class Comment  implements Serializable{
 	private static final long serialVersionUID = 1L;
-    
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	private float price;
+	private Date sendDate;
 	
-	private Date startingDate;
+	private String description;
 	
-	private Date endingDate;
+	@ManyToOne
+	private ServiceOrder serviceOrder;
 
-	public ServiceOrder(Integer id, float price, Date startingDate, Date endingDate) {
-		super();
-		this.id = id;
-		this.price = price;
-		this.startingDate = startingDate;
-		this.endingDate = endingDate;
-	}
-	
 	@Column(name="created_at")
 	private Date createdAt;
 	
@@ -43,80 +36,64 @@ public class ServiceOrder implements Serializable{
 	private Date deletedAt;
 	
 	
-
-	public ServiceOrder() {
+	public Comment(Integer id, Date sendDate, String description) {
 		super();
+		this.id = id;
+		this.sendDate = sendDate;
+		this.description = description;
 	}
 
-
+	public Comment() {
+		super();
+	}
 
 	public Integer getId() {
 		return id;
 	}
-     
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public float getPrice() {
-		return price;
+	public Date getSendDate() {
+		return sendDate;
 	}
 
-	public void setPrice(float price) {
-		this.price = price;
+	public void setSendDate(Date sendDate) {
+		this.sendDate = sendDate;
 	}
 
-	public Date getStartingDate() {
-		return startingDate;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setStartingDate(Date startingDate) {
-		this.startingDate = startingDate;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Date getEndingDate() {
-		return endingDate;
-	}
-
-	public void setEndingDate(Date endingDate) {
-		this.endingDate = endingDate;
-	}
-
-	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-
-
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
-
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-
-
 	public Date getDeletedAt() {
 		return deletedAt;
 	}
 
-
-
 	public void setDeletedAt(Date deletedAt) {
 		this.deletedAt = deletedAt;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -126,8 +103,6 @@ public class ServiceOrder implements Serializable{
 		return result;
 	}
 
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -136,7 +111,7 @@ public class ServiceOrder implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ServiceOrder other = (ServiceOrder) obj;
+		Comment other = (Comment) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -144,7 +119,6 @@ public class ServiceOrder implements Serializable{
 			return false;
 		return true;
 	}
-	
 	
 	
 }

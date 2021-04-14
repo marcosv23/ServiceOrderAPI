@@ -1,0 +1,15 @@
+CREATE TABLE comments(
+  id BIGINT NOT NULL AUTO_INCREMENT UNIQUE, 
+  service_order_id BIGINT, 
+  description TEXT NOT NULL, 
+  sending_date DATETIME NOT NULL, 
+
+  created_at TIMESTAMP DEFAULT  CURRENT_TIMESTAMP, 
+  updated_at TIMESTAMP DEFAULT   CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+  deleted_at TIMESTAMP NULL DEFAULT NULL,
+
+  PRIMARY KEY (id), 
+  
+  CONSTRAINT FK_service_order FOREIGN KEY(service_order_id) REFERENCES service_orders(id)
+);
+

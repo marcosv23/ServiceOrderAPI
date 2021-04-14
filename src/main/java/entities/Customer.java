@@ -1,4 +1,4 @@
-package com.api.order.service.entities;
+package entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,20 +9,38 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import validationgroups.ValidationGroup;
 
 @Entity
 @Table(name="customers")
 public class Customer  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	@Id 
+	@NotNull( groups = ValidationGroup.CustomerId.class)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotBlank
+	@Size(max =60)
+	private String name;
+	
+	@NotBlank
+	@Email
+	@Size(max =255)
 	private String email;
 	
+	@NotBlank
+	@Size(max =20)
 	private String phone;
 	
+	@NotBlank
+	@Size(max =11)
 	private String cpf;
 	
 	@Column(name="created_at")
@@ -53,6 +71,16 @@ public class Customer  implements Serializable{
 
 	public Date getCreatedAt() {
 		return createdAt;
+	}
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setCreatedAt(Date createdAt) {

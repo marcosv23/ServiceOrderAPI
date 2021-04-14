@@ -1,8 +1,8 @@
-package com.api.order.service.repositories;
+package repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.api.order.service.entities.ServiceOrder;
+import entities.ServiceOrder;
 
 public interface ServiceOrderRepository extends JpaRepository<ServiceOrder, Integer>{
 
