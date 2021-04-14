@@ -1,4 +1,4 @@
-#  :pushpin: Service Order API computer :earth_asia:
+#  :pushpin: Service Order API :computer: :earth_asia:
 
 Fatec Service Order API for [Fatec](https://www.fatecsaocaetano.edu.br/).
 
