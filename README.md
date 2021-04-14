@@ -1,7 +1,6 @@
 # Service Order API
 
 
-
 Fatec Service Order Api [Spring Boot](https://www.fatecsaocaetano.edu.br/).
 
 ## Requirements
