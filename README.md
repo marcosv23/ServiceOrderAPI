@@ -1,6 +1,6 @@
 #  :pushpin: Service Order API :computer: :earth_asia:
 
-Fatec Service Order API for [Fatec](https://www.fatecsaocaetano.edu.br/).
+ Service Order API for [Fatec](https://www.fatecsaocaetano.edu.br/).
 
 ## :interrobang: For what is this app?
  This backend solution is to provide for a use case study for an enterprise,
