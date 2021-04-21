@@ -3,7 +3,7 @@
  Service Order API for [Fatec](https://www.fatecsaocaetano.edu.br/).
 
 ## :interrobang: For what is this app?
- This backend solution is to provide for a use case study for an enterprise,
+ This backend solution is to solve a real use case enterprise,
  which 'll uses this app to perform service orders, view status, change its status.
  
  This backend has been Developed with Spring boot, JPA, Jakarta Bean Validations,
